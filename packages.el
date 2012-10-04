@@ -1,7 +1,3 @@
-;; - projectile
-;; - tramp ???
-;; - anywhere/helm
-  
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
 (unless (require 'el-get nil t)
@@ -23,6 +19,7 @@
 	 clojure-mode
 	 color-theme-tomorrow
 	 el-get
+	 helm
 	 markdown-mode
 	 nrepl
 	 org-mode
