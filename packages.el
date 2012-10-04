@@ -1,4 +1,3 @@
-;; - ac-nrepl
 ;; - projectile
 ;; - tramp ???
 ;; - anywhere/helm
@@ -20,6 +19,7 @@
 (setq puszczyk-packages
       (append
        '(auto-complete
+	 ac-nrepl
 	 clojure-mode
 	 color-theme-tomorrow
 	 el-get
@@ -27,6 +27,7 @@
 	 nrepl
 	 org-mode
 	 paredit
+	 projectile
 	 rst-mode
 	 session
 	 )
