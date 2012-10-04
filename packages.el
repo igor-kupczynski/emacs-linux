@@ -24,6 +24,7 @@
 	 color-theme-tomorrow
 	 el-get
 	 markdown-mode
+	 nrepl
 	 org-mode
 	 paredit
 	 rst-mode
