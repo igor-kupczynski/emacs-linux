@@ -1,6 +1,7 @@
 ;; - ac-nrepl
 ;; - projectile
 ;; - tramp ???
+;; - anywhere/helm
   
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
@@ -23,7 +24,9 @@
 	 color-theme-tomorrow
 	 el-get
 	 markdown-mode
+	 org-mode
 	 paredit
+	 rst-mode
 	 session
 	 )
        (mapcar 'el-get-source-name el-get-sources)))

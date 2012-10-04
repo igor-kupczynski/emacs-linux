@@ -3,3 +3,5 @@ ac-comphist.dat
 el-get/
 *.elc
 *~
+org-clock-save.el
+

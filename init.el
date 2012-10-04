@@ -25,11 +25,5 @@
 ;; Init packages
 (load-library "packages.el")
 
-
-;; Text
-;;(load-library "puszczyk-org.el")
-;;(load-library "puszczyk-rst.el")
-
-
 ;; Misc
-;;(load-library "puszczyk-misc.el")
+(load-library "misc.el")
