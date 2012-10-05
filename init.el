@@ -27,3 +27,6 @@
 
 ;; Misc
 (load-library "misc.el")
+
+;; Hooks
+(load-library "hooks.el")
