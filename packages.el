@@ -19,7 +19,6 @@
 	 clojure-mode
 	 color-theme-tomorrow
 	 el-get
-	 helm
 	 markdown-mode
 	 nrepl
 	 org-mode
