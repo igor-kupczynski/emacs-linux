@@ -24,6 +24,7 @@
 	 org-mode
 	 paredit
 	 projectile
+	 rainbow-delimiters
 	 rst-mode
 	 session
 	 )
