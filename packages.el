@@ -19,6 +19,8 @@
 	 clojure-mode
 	 color-theme-tomorrow
 	 el-get
+	 iedit
+	 magit
 	 markdown-mode
 	 nrepl
 	 org-mode
