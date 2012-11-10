@@ -54,8 +54,8 @@ defined, count words in buffer"
 
 
 ;; Paths
-(setq exec-path (append exec-path (list "~/bin" )))
-(setenv "PATH" (concat "~/bin:" (getenv "PATH")))
+(setq exec-path (append exec-path (list "$HOME/bin" )))
+(setenv "PATH" (concat "$HOME/bin:" (getenv "PATH")))
 
 
 ;; Ispell dict
