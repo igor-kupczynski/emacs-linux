@@ -5,3 +5,5 @@ el-get/
 *~
 org-clock-save.el
 elpa
+eshell
+tramp
