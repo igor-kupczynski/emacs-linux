@@ -25,6 +25,7 @@
 	 nrepl
 	 org-mode
 	 paredit
+	 pylookup
 	 rainbow-delimiters
 	 rst-mode
 	 session
