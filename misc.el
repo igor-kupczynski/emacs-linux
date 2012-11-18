@@ -60,3 +60,10 @@ defined, count words in buffer"
 
 ;; Ispell dict
 (setq ispell-dictionary "english")
+
+
+;; Unique buffer names
+(require 'uniquify)
+(setq 
+  uniquify-buffer-name-style 'post-forward
+  uniquify-separator ":")
