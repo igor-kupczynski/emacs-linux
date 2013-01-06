@@ -1,9 +1,9 @@
 ;; Look and feel
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-(set-default-font "DejaVu Sans Mono-10")
+(set-default-font "DejaVu Sans Mono-9")
 (add-to-list 'default-frame-alist
-             '(font . "DejaVu Sans Mono-10"))
+             '(font . "DejaVu Sans Mono-9"))
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
 
