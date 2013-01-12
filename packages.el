@@ -21,6 +21,7 @@
 	 el-get
 	 helm
 	 iedit
+	 jedi
 	 magit
 	 markdown-mode
 	 nrepl
