@@ -31,3 +31,8 @@
 ;; Clock
 (setq org-clock-persist 'history)
 (org-clock-persistence-insinuate)
+
+
+;; Tmp fix
+(setq org-element-affiliated-keywords '())
+(setq org-element-block-name-alist '())
