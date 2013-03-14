@@ -33,6 +33,3 @@
 (org-clock-persistence-insinuate)
 
 
-;; Tmp fix
-(setq org-element-affiliated-keywords '())
-(setq org-element-block-name-alist '())
