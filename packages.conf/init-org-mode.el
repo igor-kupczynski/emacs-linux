@@ -9,6 +9,14 @@
                 ("\\.org$" . org-mode)) auto-mode-alist))
 
 ;;----------------------------------------------------------------------
+;; Publish facilities
+(require 'ox-md)
+
+;; projects are set up there
+(add-to-list 'load-path "~/.emacs.d/publish/")
+(load "publish-project-tmp.el")
+
+;;----------------------------------------------------------------------
 ;; Emacs as a task paper
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
