@@ -9,35 +9,27 @@
                 ("\\.org$" . org-mode)) auto-mode-alist))
 
 ;;----------------------------------------------------------------------
+;; Global keys
+;;----------------------------------------------------------------------
+
+(define-key global-map "\C-cl" 'org-store-link)
+(define-key global-map "\C-ca" 'org-agenda)
+(define-key global-map "\C-cb" 'org-iswitchb)
+
+
+;;----------------------------------------------------------------------
 ;; Publish facilities
+;;----------------------------------------------------------------------
+
 (require 'ox-md)
 
 ;; projects are set up there
 (add-to-list 'load-path "~/.emacs.d/publish/")
 (load "publish-project-tmp.el")
 
+
 ;;----------------------------------------------------------------------
-;; Emacs as a task paper
-(define-key global-map "\C-cl" 'org-store-link)
-(define-key global-map "\C-ca" 'org-agenda)
-(define-key global-map "\C-cb" 'org-iswitchb)
-(setq org-log-done t)
-
-(setq org-startup-folded nil)
-
 ;; Workflow
-(setq org-todo-keywords
-      '((sequence "TODO(t)" "IN-PROGRESS(p)" "|" "DONE(d)")
-	(sequence "WAIT(w)" "|" "CANCELED(c)")))
-
-
-;; Set the agenda
-(ignore-errors
-  (load-file "~/.emacs.d/custom/org-agenda.el"))
-
-
-;; Clock
-(setq org-clock-persist 'history)
-(org-clock-persistence-insinuate)
-
+;;----------------------------------------------------------------------
+(setq org-log-done t)
 
