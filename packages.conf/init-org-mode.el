@@ -34,8 +34,19 @@
 ;;----------------------------------------------------------------------
 ;; Capture
 ;;----------------------------------------------------------------------
-(setq org-default-notes-file (concat org-directory "/main.org"))
+(setq org-default-notes-file (in-org-dir "main.org"))
 (define-key global-map "\C-cc" 'org-capture)
+
+(setq org-capture-templates
+      (quote (("t" "todo" entry (file+headline org-default-notes-file "Inbox")
+               "* TODO %?\n   Added: %U\n   %a\n")
+              ("n" "note" entry (file+headline org-default-notes-file "Inbox")
+               "* %?\n   Added %U\n   %a\n")
+	      ("a" "appointment" entry (file+headline org-default-notes-file "Calendar")
+               "* APPT %?\n   Added: %U\n   %a\n   Scheduled: %^{Scheduled}T\n")
+;;              ("j" "Journal" entry (file+datetree "~/git/org/diary.org")
+;;               "* %?\n%U\n" :clock-in t :clock-resume t)	      )
+	      )))
 
 
 ;;----------------------------------------------------------------------
@@ -50,8 +61,8 @@
 
 (setq org-global-properties (quote (("Effort_ALL" . "0:10 0:20 0:30 1:00 2:00 4:00 6:00 8:00"))))
 (setq org-columns-default-format "%38ITEM(Details) %TAGS(Context) %7TODO(To Do) %5Effort(Time){:} %6CLOCKSUM{Total}")
-(setq org-tag-alist '(("@HOME" . ?h) ("@COMPUTER" . ?c) ("@LUNCH" . ?l)
-		      ("PROJECT" . ?p) ("READING" . ?r) ("ENTERTAINMENT" . ?e)))
+(setq org-tag-alist '(("@HOME" . ?h) ("@COMPUTER" . ?c) ("@OFFICE" . ?o) ("@LUNCH" . ?l)
+		      ("PROJECT" . ?p) ("READING" . ?r) ))
 (setq org-treat-S-cursor-todo-selection-as-state-change nil)
 
 (setq org-use-fast-todo-selection t)
@@ -61,11 +72,12 @@
 (setq org-agenda-custom-commands
       (quote (("H" "Computer and Home Lists"
 	       ((agenda)
+		(tags-todo "INBOX")
 		(tags-todo "@COMPUTER")
 		(tags-todo "@HOME")
+		(tags-todo "@OFFICE")
 		(tags-todo "@LUNCH")
-		(tags-todo "READING")
-		(tags-todo "ENTERTAINMENT")))
+		(tags-todo "READING")))
 	      ("D" "Daily Action List"
 	       ((agenda "" ((org-agenda-ndays 1)
 			    (org-agenda-sorting-strategy
@@ -114,13 +126,13 @@
 
 ;; watch mobileorg.org for changes, and then call org-mobile-pull
 ;; http://stackoverflow.com/questions/3456782/emacs-lisp-how-to-monitor-changes-of-a-file-directory
-(defun install-monitor (file secs)
-  (run-with-timer
-   0 secs
-   (lambda (f p)
-     (unless (< p (second (time-since (elt (file-attributes f) 5))))
-       (org-mobile-pull)))
-   file secs))
-(defvar monitor-timer (install-monitor (concat org-mobile-directory "/mobileorg.org") 30)
-  "Check if file changed every 30 s.")
+;; (defun install-monitor (file secs)
+;;   (run-with-timer
+;;    0 secs
+;;    (lambda (f p)
+;;      (unless (< p (second (time-since (elt (file-attributes f) 5))))
+;;        (org-mobile-pull)))
+;;    file secs))
+;; (defvar monitor-timer (install-monitor (concat org-mobile-directory "/mobileorg.org") 30)
+;;   "Check if file changed every 30 s.")
 
