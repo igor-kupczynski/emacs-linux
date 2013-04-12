@@ -18,6 +18,7 @@
        '(auto-complete
 	 ac-nrepl
 	 clojure-mode
+	 color-theme-solarized
 	 color-theme-tomorrow
 	 el-get
 	 helm
