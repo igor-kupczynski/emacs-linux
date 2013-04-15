@@ -8,8 +8,11 @@
       (append '(("\\.txt$" . org-mode)
                 ("\\.org$" . org-mode)) auto-mode-alist))
 
-(setq org-directory "~/Dropbox/org")
+(setq org-directory "~/Documents/git/org")
 (defun in-org-dir (item) (concat org-directory "/" item))
+
+(setq masz-prawo-dir (in-org-dir "projects/maszprawo"))
+(defun in-masz-prawo-dir (item) (concat masz-prawo-dir "/" item))
 
 
 ;;----------------------------------------------------------------------
@@ -41,9 +44,26 @@
 
 (require 'ox-md)
 
-;; projects are set up there
-(add-to-list 'load-path "~/.emacs.d/publish/")
-(load "publish-project-tmp.el")
+(setq org-publish-project-alist
+      '(("masz-prawo-org"
+	 :base-directory "~/Documents/git/org/projects/maszprawo/"
+	 :base-extension "org"
+	 :publishing-directory "~/Documents/git/org/projects/maszprawo/_html"
+	 :recursive t
+	 :publishing-function org-html-publish-to-html
+	 :auto-preamble t
+	 )
+	("masz-prawo-static"
+	 :base-directory "~/Documents/git/org/projects/maszprawo/"
+	 :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
+	 :publishing-directory "~/Documents/git/org/projects/maszprawo/_html"
+	 :recursive t
+	 :publishing-function org-publish-attachment
+	 )
+	("masz-prawo" :components ("masz-prawo-org"
+				   "masz-prawo-static"))
+      ))
+
 
 
 ;;----------------------------------------------------------------------
@@ -103,7 +123,7 @@
 
 (setq org-use-fast-todo-selection t)
 (setq org-todo-keywords
-      '((sequence "SOMEDAY(s/!)"  "TODO(t)" "WAIT(w@/!)" "APPT(a)" "|" "DEFERRED(x@/!)" "DONE(d!)" "CANCELED(c@)")))
+      '((sequence  "TODO(t)" "SOMEDAY(s/!)" "WAIT(w@/!)" "APPT(a)" "|" "DEFERRED(x@/!)" "DONE(d!)" "CANCELED(c@)")))
 
 
 (setq org-agenda-tags-todo-honor-ignore-options t)
@@ -132,6 +152,13 @@
 ;; Other
 ;;----------------------------------------------------------------------
 (setq org-startup-indented nil)
+
+
+;;----------------------------------------------------------------------
+;; Sync
+;;----------------------------------------------------------------------
+(run-at-time "00:59" 3600 'org-save-all-org-buffers)
+;; CRON: 0 * * * * ~/bin/org-git-sync.sh >/dev/null
 
 
 ;; ;;----------------------------------------------------------------------
