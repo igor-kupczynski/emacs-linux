@@ -75,7 +75,7 @@
       (quote (("t" "Todo" entry (file+headline org-default-notes-file "Inbox")
                "* TODO %?\n   Added: %U\n   %a\n")
               ("n" "Note" entry (file+headline org-default-notes-file "Inbox")
-               "* %?\n   Added %U\n   %a\n")
+               "* NOTE %?\n   Added %U\n   %a\n")
 	      ("a" "Appointment" entry (file+headline org-default-notes-file "Calendar")
                "* APPT %?\n   Added: %U\n   %a\n   Scheduled: %^{Scheduled}T\n")
 	      ("j" "Journal" entry (file+datetree org-default-journal-file)
