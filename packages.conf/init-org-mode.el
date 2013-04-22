@@ -42,13 +42,38 @@
 ;; Publish facilities
 ;;----------------------------------------------------------------------
 
-(require 'ox-md)
+(defun igor/display-inline-images ()
+  (condition-case nil
+      (org-display-inline-images)
+    (error nil)))
+(add-hook 'org-babel-after-execute-hook 'igor/display-inline-images 'append)
 
+(org-babel-do-load-languages
+ (quote org-babel-load-languages)
+ (quote ((emacs-lisp . t)
+         (dot . t)
+         (ditaa . t)
+         (R . t)
+         (python . t)
+         (ruby . t)
+         (gnuplot . t)
+         (clojure . t)
+         (sh . t)
+         (ledger . t)
+         (org . t)
+         (plantuml . t)
+         (latex . t))))
+
+(setq org-confirm-babel-evaluate nil)
+(add-to-list 'org-src-lang-modes (quote ("plantuml" . fundamental)))
+
+
+(require 'ox-md)
 (setq org-publish-project-alist
       '(("masz-prawo-org"
 	 :base-directory "~/Documents/git/org/projects/maszprawo/"
 	 :base-extension "org"
-	 :publishing-directory "~/Documents/git/org/projects/maszprawo/_html"
+	 :publishing-directory "~/Documents/git/org/projects/maszprawo_html"
 	 :recursive t
 	 :publishing-function org-html-publish-to-html
 	 :auto-preamble t
@@ -56,7 +81,7 @@
 	("masz-prawo-static"
 	 :base-directory "~/Documents/git/org/projects/maszprawo/"
 	 :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
-	 :publishing-directory "~/Documents/git/org/projects/maszprawo/_html"
+	 :publishing-directory "~/Documents/git/org/projects/maszprawo_html"
 	 :recursive t
 	 :publishing-function org-publish-attachment
 	 )
