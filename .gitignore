@@ -1,4 +1,6 @@
-.session*
+.session
+session*
+bookmarks
 ac-comphist.dat
 el-get/
 *.elc
@@ -9,3 +11,4 @@ eshell
 tramp
 url
 modules.local
+.org-id-locations
