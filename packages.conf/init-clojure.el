@@ -1,1 +1,1 @@
-(setq auto-mode-alist (cons '("\\.cljs" . clojure-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.cljs$" . clojure-mode) auto-mode-alist))

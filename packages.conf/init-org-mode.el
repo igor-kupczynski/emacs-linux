@@ -87,6 +87,30 @@
 	 )
 	("masz-prawo" :components ("masz-prawo-org"
 				   "masz-prawo-static"))
+	("geek-igor-org"
+	 :base-directory "~/wks/GeekIgor/_org"
+	 :base-extension "org"
+	 :publishing-directory "~/wks/GeekIgor"
+	 :recursive t
+	 :publishing-function org-html-publish-to-html
+	 :inline-images t
+         :drawers nil
+         :todo-keywords nil
+         :exclude "draft*"
+         :section-numbers nil
+         :auto-preamble nil
+         :auto-postamble nil
+	 :body-only t
+	 )
+	("geek-igor-static"
+	 :base-directory "~/wks/GeekIgor/_org"
+	 :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
+	 :publishing-directory "~/wks/GeekIgor"
+	 :recursive t
+	 :publishing-function org-publish-attachment
+	 )
+	("geek-igor" :components ("geek-igor-org"
+				   "geek-igor-static"))
       ))
 
 
@@ -157,11 +181,12 @@
       (quote (("W" "Current Week"
 	       ((agenda)
 		(tags-todo "INBOX")
-		(tags-todo "@COMPUTER")
 		(tags-todo "@HOME")
+		(tags-todo "@ERRAND")
 		(tags-todo "@OFFICE")
 		(tags-todo "@LUNCH")
-		(tags-todo "READING"))
+		(tags-todo "READING")
+		(tags-todo "@COMPUTER"))
 	       nil
 	       ("~/Dropbox/org/mobile/week.html"))
 	      ("D" "Daily Action List"

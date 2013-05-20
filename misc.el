@@ -67,3 +67,7 @@ defined, count words in buffer"
 (setq 
   uniquify-buffer-name-style 'post-forward
   uniquify-separator ":")
+
+
+;; Proced
+(global-set-key (kbd "C-x p") 'proced)
